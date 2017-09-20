@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace = "com.anyang.ks.mapper.marketPriceMapper">
+	
+		<insert id="rateSave">
+			INSERT INTO MARKET_PRICE 
+			(LABEL, NAME, PRICE_BTC, PRICE_USD, PRICE_CNY, PRICE_EUR, PRICE_GBP, PRICE_RUR, VOLUME_24H, TIMESTAMP)
+			VALUES(#{label}, #{name}, #{price_btc_result}, #{price_usd_result}, #{price_cny_result}, #{price_eur_result}, #{price_gbp_result}, #{price_rur_result}, #{volume_24h_result}, ${timestamp})
+		</insert>
+		
+		<!-- chart search -->
+		<!-- #{money_type}은 통화 타입 (btc, usd, cny...)을 결정하기 위해 삽입 -->
+		<!--  <select id="chart" resultType="com.anyang.ks.marketPrice.MarketPriceChart">
+			SELECT TIMESTAMP, #{money_type}
+			FROM MARKET_PRICE 
+			WHERE NAME = #{name} 
+		</select> -->
+		
+		<!--  <insert id="bitcoinList">
+	      	INSERT INTO MARKET
+	      	(LABEL, NAME, VOLUME_24H, TIMESTAMP)
+	      	VALUES(#{label}, #{name}, #{volume_24h_result}, ${timestamp})
+		</insert>-->
+		
+		<!-- value로 써야한다. -->
+		<select id="chartData" resultType="com.anyang.ks.marketPrice.MarketPriceChart">
+			SELECT TIMESTAMP, ${value}
+			FROM MARKET_PRICE
+			WHERE NAME = "LiteCoin"
+		</select> 
+		<!--
+		 <insert id="rateList">
+	      	INSERT INTO RATE
+	      	(NAME, RATE, DATE, TIME, ASK, BID)
+	      	VALUES(#{name}, #{date}, #{time}, ${ask}, ${bid})
+		</insert>-->
+		
+		<!--View테이블을 이용한 방법
+		
+		CREATE VIEW MARKET AS
+        SELECT *
+        FROM MARKET_PRICE
+        GROUP BY NAME
+        ORDER BY NAME ASC;
+        ㅅㅌㅊ
+? 너 능력이 보통이아님 놀람  너짱
+		깨끗하게 맑게 자신있게 뚝딱해버림 뚝딱뚝닥 이건뭐냐안돼그러지마
+		 -->
+		<select id="bitcoinList" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				MARKET
+			ORDER BY VOLUME_24H DESC;
+		
+		]]>
+		</select>
+		
+		<select id="bitcoinListLABEL" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<![CDATA[
+			SELECT 
+ 				* 
+			FROM 
+ 				MARKET
+			ORDER BY LABEL ASC; 
+		
+ 		]]> 
+		</select>
+		
+		<select id="bitcoinListNAME" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<![CDATA[
+ 			SELECT 
+ 				* 
+ 			FROM 
+ 				MARKET
+ 			ORDER BY NAME ASC; 
+		
+ 		]]> 
+		</select>
+		
+				<select id="bitcoinListPRICE" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<![CDATA[
+ 			SELECT 
+ 				* 
+ 			FROM 
+ 				MARKET
+ 			ORDER BY ${value} DESC; 
+		
+ 		]]> 
+		</select>
+		
+		<select id="oneChart" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		SELECT TIMESTAMP, ${money_type}
+		FROM MARKET_PRICE
+		WHERE NAME = #{coin_type}
+		<!--  GROUP BY TIMESTAMP
+		ORDER BY TIMESTAMP DESC LIMIT 1, 7-->
+	
+
+		</select>
+		
+
+	</mapper>
+

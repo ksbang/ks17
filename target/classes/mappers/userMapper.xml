@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.anyang.ks.mapper.UserMapper">
+
+	<select id="isEmailDuplicate" resultType="com.anyang.ks.user.User" >
+		SELECT USER_EMAIL FROM USER WHERE USER_EMAIL = #{USER_EMAIL}
+	</select>
+
+	<insert id = "insertLoginProfileByEmail">
+		INSERT INTO USER(USER_EMAIL, USER_PASSWORD, USER_NICKNAME) VALUES(#{USER_EMAIL}, #{USER_PASSWORD}, #{USER_NICKNAME})
+	</insert>
+	
+	<insert id = "insertRegisterType" parameterType = "map">
+		INSERT INTO REGISTER_TYPE(USER_NUM, REGISTER_TYPE_CODE) VALUES((SELECT USER_NUM FROM USER WHERE USER_EMAIL = #{signupVO.USER_EMAIL}), #{register_type_code})
+	</insert>
+	
+	<select id="getLoginProfileByEmail" resultType="com.anyang.ks.user.User" >
+		SELECT USER_NUM, USER_EMAIL, USER_PASSWORD, USER_NICKNAME FROM USER WHERE USER_EMAIL = #{USER_EMAIL} AND USER_PASSWORD = #{USER_PASSWORD}  
+	</select>
+	
+	<!-- EmailLog 기록  -->
+	<insert id = "insertUserLoginRecord">
+		INSERT INTO LOGIN(USER_NUM, LOGIN_DATE, LOGOUT_DATE) VALUES((SELECT USER_NUM FROM USER WHERE USER_EMAIL = #{USER_EMAIL}), NOW(), NOW())
+	</insert>
+	
+	<select id = "selectUserLogoutRecord" resultType = "java.lang.String" >
+		SELECT LOGIN_NUM FROM LOGIN WHERE USER_NUM = (SELECT USER_NUM FROM USER WHERE USER_EMAIL = #{USER_EMAIL}) AND LOGIN_DATE = LOGOUT_DATE ORDER BY LOGOUT_DATE DESC LIMIT 1
+	</select>
+	
+	<update id = "updateUserLogoutRecord">
+		UPDATE LOGIN SET LOGOUT_DATE = NOW() WHERE LOGIN_NUM = #{login_num};
+	</update>
+
+	<select id = "getRegisterTypeCode" resultType = "java.lang.String">
+		SELECT REGISTER_TYPE_CODE FROM REGISTER_TYPE WHERE USER_NUM = #{USER_NUM};
+	</select>
+	
+	<update id = "updateUserPassword">
+		UPDATE USER SET USER_PASSWORD = #{USER_PASSWORD} WHERE USER_EMAIL = #{USER_EMAIL};
+	</update>
+	
+	<select id="getUserNickName" resultType="java.lang.String" >
+		SELECT USER_NICKNAME FROM USER WHERE USER_EMAIL = #{email}
+	</select>
+	
+	<update id = "changeNickName">
+		UPDATE USER SET USER_NICKNAME = #{USER_NICKNAME} WHERE USER_EMAIL = #{USER_EMAIL};
+	</update>
+	
+	<select id="getPassword" resultType="java.lang.String" >
+		SELECT USER_PASSWORD FROM USER WHERE USER_EMAIL = #{USER_EMAIL}
+	</select>
+	
+	<update id = "changePassword">
+		UPDATE USER SET USER_PASSWORD = #{CHANGE_USER_PASSWORD} WHERE USER_EMAIL = #{USER_EMAIL};
+	</update>
+
+</mapper>

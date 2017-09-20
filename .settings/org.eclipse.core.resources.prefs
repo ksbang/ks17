@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/anyang/ks/marketPrice/MarketPriceChart.java=UTF-8
+encoding//src/main/java/com/anyang/ks/marketPrice/MarketPriceController.java=UTF-8
+encoding//src/main/java/com/anyang/ks/marketPrice/MarketPriceDataController.java=UTF-8
+encoding//src/main/java/com/anyang/ks/myPage/MyPageController.java=UTF-8
+encoding//src/main/java/com/anyang/ks/scrap/AbroadScrapServiceImpl.java=UTF-8
+encoding//src/main/java/com/anyang/ks/scrap/DemesticScrapServiceImpl.java=UTF-8
+encoding//src/main/java/com/anyang/ks/scrap/NewsController.java=UTF-8
+encoding//src/main/java/com/anyang/ks/user/AuthInterceptor.java=UTF-8
+encoding//src/main/java/com/anyang/ks/user/LoginInterceptor.java=UTF-8
+encoding//src/main/java/com/anyang/ks/user/LogoutInterceptor.java=UTF-8
+encoding//src/main/java/com/anyang/ks/user/UserController.java=UTF-8
+encoding//src/main/java/com/anyang/ks/user/UserDAOImpl.java=UTF-8
+encoding//src/test/java/com/anyang/ks/BoardDAOTest.java=UTF-8
