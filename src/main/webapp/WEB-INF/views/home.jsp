@@ -22,7 +22,7 @@
 	
 		<!-- header content -->
 		<div id="header-content">
-			<!-- <img src="../../resources/img/main_typo.png" alt="메인화면 이미지" id="main_typo_img"/> -->
+			 <img src="../../resources/img/main_typo.png" alt="메인화면 이미지" id="main_typo_img"/> 
 		</div>
 		
 		<!-- graph link img -->
@@ -199,6 +199,8 @@
 			</div>
 		</div>
 	</section>
+	
+	
 	<script>
 	$(document).ready(function(){
 		loginCheck = "${empty login}"
@@ -216,14 +218,14 @@
 		
 	});
 	</script>
- 	<!--  <script>
+ 	 <script>
 		$(document).ready(function() {
 			var email = '<c:out value="${login.USER_EMAIL}"/>';
 			if(email == "ksbang72@gmail.com")
 			{
 				var options = {	
 						//videoId: 'H9P_wkq08XA', 
-						videoId: 'TYa9JNicEts',
+						videoId: 'fJIGGV_hWP4',
 						start: 10
 					};
 			}
@@ -239,6 +241,6 @@
 			$('#wrapper').tubular(options);
 			
 		});
-	</script> -->
+	</script> 
 <%@ include file="include/footer.jsp" %>
 		

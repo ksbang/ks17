@@ -1,6 +1,4 @@
-
 package com.anyang.ks.marketPrice;
-
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +27,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 @RestController
 @RequestMapping("/rate/*")
 public class MarketPriceDataController {
@@ -45,18 +41,11 @@ public class MarketPriceDataController {
         
         try {
             
-            String apiURL = "";         
+            String apiURL = "";          
             String command = "";
             
             //apiURL = "https://www.worldcoinindex.com/apiservice/json?key=TSd9QUg1uE9PRE3JSFP88IWvJ";
-            //apiURL = "https://www.worldcoinindex.com/apiservice/json?key=TSd9QUg1uE9PRE3JSFP88IWvJ";
-              apiURL = "https://www.worldcoinindex.com/apiservice/json?key=sRm3zTLp36RKTAlrpZvYzkauK";
-            //너무 자주 실행해서 거부 당한듯 api 키 새로 받아서 테스트해봐
-            //403 에러 뜨잖아 넘슬퍼 apiURL을 다시 받을 생각을 권장함 //내 URL 다 지워버렸냐?
-            // 야 3개인가 더 있지 않았냐?ㄴㄴ
-            // 저것도 쓰던 거 아님?아님 새로받아옴 놋북으로
-            // 잘했다!
-           
+            apiURL = "https://www.worldcoinindex.com/apiservice/json?key=sRm3zTLp36RKTAlrpZvYzkauK";
             
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
@@ -65,28 +54,14 @@ public class MarketPriceDataController {
             //신의 한수임
             con.connect();
             int responseCode = con.getResponseCode();
-
-            //제이슨어레이 텍스트 받아오는 코드
-            //야 api 예전이랑 뭐가 바뀌었다는 거임 키값이 다름
-            //어디가 바뀐건지 말을해줘
-            System.out.println("responseCode: " + responseCode);
             
             BufferedReader br;
             if(responseCode==200) { 
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                System.out.println("대성공");
             } else {
                 br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-                System.out.println("대실패");
             }
-            System.out.println("왜 출력이 안돼!"); //왜 이제 출력 안됨? 오류도 안뜨네 파싱오류 안바꿈
-            //아야 뭐 바꾼거냐 떴네
-            //대실패잖아
-            // 아오 타과라서
-            // 상담하고 가야한대 큰일남 
-            // 무슨 상담일까
-            // 실력좀 보여주고와
-            //ㅋ 야 이거 그냥 냅둬 보여주고 와야할듯그래고리
+            
             String inputLine;
             StringBuffer res = new StringBuffer();
             
@@ -96,12 +71,11 @@ public class MarketPriceDataController {
             
             br.close();
             
-            if(responseCode==200) { //사이트가 제대로 작동한다면.
+            if(responseCode==200) {
                 command = res.toString();
             }
-            System.out.println("경식1" + command + "경식2");
-            String jsonInfo = command; 
             
+            String jsonInfo = command;
             
             try {
             	
@@ -109,12 +83,8 @@ public class MarketPriceDataController {
                 JSONObject jsonObject = (JSONObject) jsonParser.parse(jsonInfo);
                 JSONArray marketsInfoArray = (JSONArray) jsonObject.get("Markets");
    
-                for(int i=0; i<marketsInfoArray.size(); i++) {
-                	//안녕 경식아
-                	//너무 빨리 해ㅓ려서 코딩 하는 모습을 보여줘야한대
-                	//좀만 보여줘 스프링으로 조져버림
+                for(int i=0; i<marketsInfoArray.size(); i++){
                 	
-                	//아님 잠
                     JSONObject marketsObject = (JSONObject) marketsInfoArray.get(i);
                     BigDecimal price_btc = new BigDecimal((Double) marketsObject.get("Price_btc"));
                     BigDecimal price_usd = new BigDecimal((Double) marketsObject.get("Price_usd"));
@@ -123,15 +93,6 @@ public class MarketPriceDataController {
                     BigDecimal price_gbp = new BigDecimal((Double) marketsObject.get("Price_gbp"));
                     BigDecimal price_rur = new BigDecimal((Double) marketsObject.get("Price_rur"));
                     BigDecimal volume_24h = new BigDecimal((Double) marketsObject.get("Volume_24h"));
-                   //안녕경식아
-                    //그나마 쾌적해짐
-                    /* BigDecimal price_btc = BigDecimal.valueOf((Double) marketsObject.get("Price_btc"));
-                    BigDecimal price_usd = BigDecimal.valueOf((Double) marketsObject.get("Price_usd"));
-                    BigDecimal price_cny = BigDecimal.valueOf((Double) marketsObject.get("Price_cny"));
-                    BigDecimal price_eur = BigDecimalㅈ.valueOf((Double) marketsObject.get("Price_eur"));
-                    BigDecimal price_gbp = BigDecimal.valueOf((Double) marketsObject.get("Price_gbp"));
-                    BigDecimal price_rur = BigDecimal.valueOf((Double) marketsObject.get("Price_rur"));
-                    BigDecimal volume_24h = BigDecimal.valueOf((Double) marketsObject.get("Volume_24h")); */
                     
                     BigDecimal ex = new BigDecimal(1);
                     BigDecimal price_btc_out = price_btc.divide(ex, 6, BigDecimal.ROUND_DOWN);
@@ -169,13 +130,12 @@ public class MarketPriceDataController {
     }
 
     
-	//db에서 받아온 데이터 중 원하는 속상만 추려서 JSON 객체화 한다.
-    //required=false, value= 원래는 name??
+	//db에서 받아온 데이터 중 원하는 속성만 추려서 JSON 객체화 한다.
 	@RequestMapping(value = "/chartData", method = RequestMethod.GET)
-	public JSONArray chart(@RequestParam(required=false, value="money_type") String money_type, HttpServletResponse response) throws Exception {
+	public JSONArray chart(@RequestParam("money_type") String money_type, HttpServletResponse response) throws Exception {
 		
 		//객체 타입으로 데이터를 날리면 안된다. 배열을 보내야한다.
-		//chartMapper.xml로부터 데이터를 뽑아 온다.
+		//chartMapper.xml로 부터  데이터를 뽑아 온다.
 		List<MarketPriceChart> marketPriceList =  marketPriceService.chart(money_type);
 
 		//JsonArray 객체 생성
@@ -229,7 +189,7 @@ public class MarketPriceDataController {
 	
 	// 비트코인 화폐 환율
 	@RequestMapping(value = "/bitrate", method = RequestMethod.GET)
-	public ArrayList<MarketPriceOutPut> bitCoinRate(@RequestParam(required=false, value="money_type") String money_type, @RequestParam(required=false, value="sorting_type") String sorting_type,  HttpServletResponse response) throws Exception {
+	public ArrayList<MarketPriceOutPut> bitCoinRate(@RequestParam("money_type") String money_type, @RequestParam("sorting_type") String sorting_type, HttpServletResponse response) throws Exception {
 
 		List<MarketPrice> bitCoinList = marketPriceService.coinRateList(sorting_type, money_type);
 
@@ -257,7 +217,7 @@ public class MarketPriceDataController {
 
 			MarketPriceOutPut marketPrice = new MarketPriceOutPut();
 			
-			// 라벨의 "/BTC"를 제거하는 코드
+			// 라벨의 "/BTC"를 제거하는 코드 
 			String beforeLabel = bitCoinList.get(i).getLabel();
 			String removeString = "/BTC";
 			int removeStringNum = beforeLabel.indexOf(removeString);
@@ -307,76 +267,79 @@ public class MarketPriceDataController {
 }
 
 	
-//	 실제 화폐 환율
+//	  실제 화폐 환율 
+//   현재 API 막함 
 	@RequestMapping(value = "/rateList", method = RequestMethod.GET)
 	public ArrayList<Rate> rateList(HttpServletResponse response) throws Exception{
 		
 		ArrayList<Rate> rateList = new ArrayList<Rate>();
 
-           String apiURL;	
-           String command = "";
-           String[] names = {"USDKRW", "JPYKRW", "EURKRW", "CNYKRW", "RUBKRW", "GBPKRW", "BTCKRW"};
-           for(int i = 0; i<names.length; i++){
-           apiURL = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%3D%22"+ names[i] +
-           		"%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+            String apiURL;	
+            String command = "";
+            String[] names = {"USDKRW", "JPYKRW", "EURKRW", "CNYKRW", "RUBKRW", "GBPKRW", "BTCKRW"};
+            for(int i = 0; i<names.length; i++){
+            apiURL = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%3D%22"+ names[i] +
+            		"%22&format=xml&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+            
+            URL url = new URL(apiURL);
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
+            //신의 한수임
+            con.connect();
+            int responseCode = con.getResponseCode();
+            BufferedReader br;
            
-           URL url = new URL(apiURL);
-           HttpURLConnection con = (HttpURLConnection)url.openConnection();
-           con.setRequestMethod("GET");
-           int responseCode = con.getResponseCode();
-           BufferedReader br;
-          
-           if(responseCode==200) { 
-               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-           } else {  
-               br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-           }
-           
-           String inputLine;
-           StringBuffer res = new StringBuffer();
-           
-           while ((inputLine = br.readLine()) != null) {
-               res.append(inputLine);
-           }
-           
-           br.close();
-           if(responseCode==200) {
-               command = res.toString();
-           }
+            if(responseCode==200) { 
+                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                System.out.println("대성공");
+            } else {  
+                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+                System.out.println("대실패");
+            }
+            
+            String inputLine;
+            StringBuffer res = new StringBuffer();
+            
+            while ((inputLine = br.readLine()) != null) {
+                res.append(inputLine);
+            }
+            
+            br.close();
+            if(responseCode==200) {
+                command = res.toString();
+            }
 
-   			String jsonInfo = command;
+    			String jsonInfo = command;
 
-           	JSONObject object = (JSONObject)JSONValue.parse(jsonInfo);
-           	JSONObject test = (JSONObject) object.get("query");
+            	JSONObject object = (JSONObject)JSONValue.parse(jsonInfo);
+            	JSONObject test = (JSONObject) object.get("query");
 
 
-           	String jsonInfo2 = test.get("results").toString();
-           	JSONObject object2 = (JSONObject) JSONValue.parse(jsonInfo2);
+            	String jsonInfo2 = test.get("results").toString();
+            	JSONObject object2 = (JSONObject) JSONValue.parse(jsonInfo2);
 
-           	String jsonInfo3 = object2.get("rate").toString();
-           	JSONObject object3 = (JSONObject) JSONValue.parse(jsonInfo3);
+            	String jsonInfo3 = object2.get("rate").toString();
+            	JSONObject object3 = (JSONObject) JSONValue.parse(jsonInfo3);
 
-               Rate rate = new Rate();
-               rate.setId(object3.get("id").toString());
-               rate.setName(object3.get("Name").toString());
-               rate.setRate(object3.get("Rate").toString());
-               rate.setAsk(object3.get("Ask").toString());
-               rate.setBid(object3.get("Bid").toString());
-           
-               rateList.add(rate);
+                Rate rate = new Rate();
+                rate.setId(object3.get("id").toString());
+                rate.setName(object3.get("Name").toString());
+                rate.setRate(object3.get("Rate").toString());
+                rate.setAsk(object3.get("Ask").toString());
+                rate.setBid(object3.get("Bid").toString());
+            
+                rateList.add(rate);
 
-               
-           }     
+                
+            }     
 
-       return rateList;
+        return rateList;
 		
 	}
-	//(required=false, value="money_type")  
-	//Add required=false attribute to @RequestParam..Change to
-
-    //@RequestParam(required=false,name="views") String view,.. 속성값을 기본으로 설정
+	
 	@RequestMapping(value = "oneChart", method = RequestMethod.GET)
-	public JSONArray selectChart(@RequestParam(required=false, value="coin_type") String coin_type, @RequestParam(required=false, value="money_type") String money_type, HttpServletResponse response) throws Exception{
+	public JSONArray selectChart(@RequestParam("coin_type") String coin_type, @RequestParam("money_type") String money_type, HttpServletResponse response) throws Exception{
 		
 		OneChart oneChart = new OneChart();
 		oneChart.setCoin_type(coin_type);
@@ -388,7 +351,7 @@ public class MarketPriceDataController {
 		String timestamp;
 		String perPrice = null;
 		
-	
+		
 		for(int i = 0 ; i < selectOneChart.size() ; i++){
 			
 			MarketPrice marketPrice = new MarketPrice();
