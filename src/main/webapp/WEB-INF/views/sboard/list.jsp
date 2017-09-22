@@ -11,24 +11,11 @@
  <link rel="stylesheet" href="../../../resources/css/list.css" />
 	<style type="text/css">
 		#imgtest > div > a > img{
-			width : 100%;
-			height : 100%;
+			width : 500%;
+			height : 500%;
 		}
 	</style>
 	
-	<c:if test="${not empty login}">
-		<script>
-			//로그인 되어 있으면
-			var login = '${login.USER_EMAIL}';
-		</script>
-	</c:if>
-
-	<c:if test="${empty login}">
-		<script>
-			//로그인 안 되 있으면
-			var login = null;
-		</script>
-	</c:if>
 </head>
 
 <%@include file="../include/grandNav.jsp" %>
@@ -43,7 +30,8 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">비트코인에 관련된 글을 자유롭게 작성해주세요!</h3>
+					<h3 class="box-title">익명게시판입니다. 
+					                              비트코인에 관련된 글을 자유롭게 작성해주세요!</h3>
 				</div>
 
 
@@ -186,26 +174,23 @@
 			});
 </script>
 
-<script>
+		
+	<!-- E : container -->
+	<script>
 	$(document).ready(function(){
-																	
-		//딜러 페이지 존재 여부, 로그인 여부에 따라 버튼을 생성하는 메서드
-		$.ajax({
-			url: "/sboard/list",
-			type: 'get',
-			data: {"login" : login},
-			success:  function (data) {
-				if(data != null){
-					$('.input-group').append('<button id = "mypage" class="btn btn-default">내 딜러 페이지</button>');
-				}
-			},  
-		    error:function(e){
-		    	if(login != null) {
-					$('.input-group').append('<button class="btn btn-default" id="newBtn">딜러 페이지 등록</button>');
-				} 
-		    }  
-									
-			});
+		loginCheck = "${empty login}"
+		if(loginCheck == "true")
+		{
+			$('.navbar-nav').append('<li><a href="#" id="signupBtn" data-toggle="modal" data-target="#signup">회원가입</a></li>');
+			$('.navbar-nav').append('<li><a href="#" id="signinBtn" data-toggle="modal" data-target="#signin">로그인</a></li>');
+	
+		}
+		else
+		{
+			$('.navbar-nav').append('<li><a href="/myPage" id = "myPage">마이페이지</a></li>');
+			$('.navbar-nav').append('<li><a href="#" id="signoutBtn">로그아웃</a></li>');
+		}
+		
 	});
 	</script>
 

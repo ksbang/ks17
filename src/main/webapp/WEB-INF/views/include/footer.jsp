@@ -27,7 +27,7 @@
 					<ul class="dropdown-menu" role="menu" aria-labelledby="sitemap">
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="marketPrice">실시간 시세</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="/news">최신 뉴스</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">비트코인 커뮤니티</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">익명 게시판</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="/board_list">딜러 소개</a></li>
 					</ul>
 				</div>
