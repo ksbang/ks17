@@ -41,10 +41,10 @@
 				<!-- 비트코인과 실화폐 환율 탭 네비 -->
 				<ul class="nav nav-tabs">
 					
-					<li class="market_price_tab active"><a data-toggle="tab" href="#bitcoin_price">비트코인</a></li>
+					<li class="market_price_tab active"><a data-toggle="tab" href="#bitcoin_price">비트코인 정보 리스트</a></li>
 											
 					<!-- 비트코인 환율 -->
-					<li class="market_price_tab"><a data-toggle="tab" href="#market_price">실화폐</a></li>
+					<!--<li class="market_price_tab"><a data-toggle="tab" href="#market_price">실화폐</a></li>-->
 					
 	
 					<li id="drop-box_sortingType">

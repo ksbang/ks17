@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* °øÅë ½ºÅ¸ÀÏ */
+/* ê³µí†µ ìŠ¤íƒ€ì¼ */
 .section{position:relative;}
 .secTitle{position:relative;width:100%;max-width:1000px;margin:0 auto;padding-left:80px;font-size:64px;font-family:"cjTitle";color:#000;box-sizing:border-box;z-index:2;}
 .secTitle:before{content:"";position:absolute;left:0;top:50%;display:inline-block;width:60px;height:4px;background:#000;}
@@ -15,7 +15,7 @@
 }
 
 
-/* »ó´Ü ºñÁÖ¾ó */
+/* ìƒë‹¨ ë¹„ì£¼ì–¼ */
 #homeArea{width:100%;height:830px;background-repeat:no-repeat;background-position:center top;background-size:cover;overflow:hidden;}
 #homeArea .homeAreaIn{position:absolute;left:0;top:50%;width:100%;margin-top:-150px;text-align:center;}
 #homeArea .homeAreaIn dl{padding:70px 0;color:#fff;}
@@ -61,13 +61,14 @@
 
 
 /* On Air */
+/*
 #onairArea{margin-top:150px;}
 #onairArea .slideWrap{position:relative;width:100%;height:710px;margin-top:18px;}
 #onairArea .slideWrap .frameSt{right:-1px;top:-60px;width:73.5%;height:770px;}
 #onairArea .slideWrap .frameSt .edge{left:0;bottom:0;border-left:1px solid #000;border-bottom:1px solid #000;}
-#onairArea .slideWrap ul{width:100%;left:50%;margin-left:-205px;}/* 0524 */
+#onairArea .slideWrap ul{width:100%;left:50%;margin-left:-205px;}/
 #onairArea .slideWrap ul:after{content:"";display:block;clear:both;}
-#onairArea .slideWrap li{float:left;width:410px;/*margin:0 17px;*/} /* 0524 */
+#onairArea .slideWrap li{float:left;width:410px;} 
 #onairArea .slideWrap li a{display:block;}
 #onairArea .slideWrap li a img{width:100%;}
 #onairArea .slideWrap li dl{padding:25px 30px 0;box-sizing:border-box;}
@@ -78,20 +79,18 @@
 #onairArea .ctrlBtns a.prev{margin-right:30px;}
 #onairArea .ctrlBtns a.next{position:relative;margin-left:31px;background-position:right top;}
 #onairArea .ctrlBtns a.next:before{content:"";position:absolute;left:-31px;top:50%;display:inline-block;width:1px;height:20px;background:#f2f2f2;margin-top:-10px;}
-
 @media all and (max-width:1024px) {
 	#onairArea .slideWrap{height:610px;}
-	#onairArea .slideWrap ul{margin-left:-170px;}/* 0524 */
+	#onairArea .slideWrap ul{margin-left:-170px;}
 	#onairArea .slideWrap li{width:340px;}
 	#onairArea .slideWrap .frameSt{width:85%;height:650px;}
 }
-
 @media all and (max-width:767px) {
 	#onairArea{margin-top:60px;}
 	#onairArea .slideWrap{height:315px;margin-top:10px;}
 	#onairArea .slideWrap .frameSt{top:-30px;width:85%;height:342px;}
-	#onairArea .slideWrap ul{margin-left:-88.5px;}/* 0524 */
-	#onairArea .slideWrap li{width:177px;/*margin:0 9px;*/}/* 0524 */
+	#onairArea .slideWrap ul{margin-left:-88.5px;}
+	#onairArea .slideWrap li{width:177px;
 	#onairArea .slideWrap li dl{padding:10px 15px 0;}
 	#onairArea .slideWrap li dt{font-size:16px;}
 	#onairArea .slideWrap li dd{font-size:12px;}
@@ -101,7 +100,7 @@
 	#onairArea .ctrlBtns a.next{margin-left:21px;}
 	#onairArea .ctrlBtns a.next:before{left:-21px;}
 }
-
+*/
 
 /* Works */
 #worksArea{width:100%;margin-top:140px;padding:0 90px;box-sizing:border-box;overflow:hidden;}
@@ -232,7 +231,7 @@
 }
 
 
-/* ÁÂÃø ÄÁÅÙÃ÷ ³×ºñ°ÔÀÌ¼Ç */
+/* ì¢Œì¸¡ ì»¨í…ì¸  ë„¤ë¹„ê²Œì´ì…˜ */
 .mainSideNavi{position:fixed;left:0;top:0;width:70px;height:100%;box-sizing:border-box;z-index:130;}
 .mainSideNavi ul{width:100%;height:100%;font-size:0;text-align:center;background:#fff;-webkit-writing-mode:vertical-rl; -moz-writing-mode:vertical-rl; -ms-writing-mode:tb-rl; writing-mode:vertical-rl;}
 .mainSideNavi ul li{display:inline-block;width:70px;line-height:70px;margin:15px 0;font-size:14px;vertical-align:middle;}
@@ -246,8 +245,9 @@
 	.mainSideNavi{display:none;}
 }
 
-/* on Air 2017.05.24Ãß°¡*/
-.bx-wrapper{margin:0 auto;}
+/* on Air 2017.05.24ì¶”ê°€*/
+/* 
+.bx-wrapper{margin:0 auto;}*/
 
 /****************** chart CSS ******************/
 #chart_usd, #chart_cny {
@@ -258,8 +258,8 @@
 	
 }
 
-/*** ½Ã¼¼¸®½ºÆ® ***/
-/* Á¦¸ñ¹Ù  */
+/*** ì‹œì„¸ë¦¬ìŠ¤íŠ¸ ***/
+/* ì œëª©ë°”  */
 #title_bar {
 	
 	padding: 15px;
@@ -274,7 +274,7 @@
     overflow: scroll;
 }
 
-/* ÅÇ ¹öÆ° */
+/* íƒ­ ë²„íŠ¼ */
 ul.nav-tabs>li>a {
 	
 	color: #ddd;
@@ -294,7 +294,7 @@ ul.nav-tabs>li>a {
 	
 }
 
-/* focus, hover½Ã css */
+/* focus, hoverì‹œ css */
 .nav-tabs>li>a:hover{
 	
 	color: #FFF; 
@@ -304,7 +304,7 @@ ul.nav-tabs>li>a {
 	
 }
 
-/* ¹öÆ°°ú ¸®½ºÆ® ±¸ºÐ¼± */
+/* ë²„íŠ¼ê³¼ ë¦¬ìŠ¤íŠ¸ êµ¬ë¶„ì„  */
 ul.nav.nav-tabs {
 	
 	background: #282b2d;
@@ -325,4 +325,3 @@ ul.nav.nav-tabs {
 	max-height: 43px;
 	
 }
-

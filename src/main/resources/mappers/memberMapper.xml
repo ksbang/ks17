@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-	<mapper namespace = "com.anyang.ks.mapper.MemberMapper">
+	<mapper namespace = "com.goku.ks.mapper.MemberMapper">
 	
 		<select id="getTime" resultType="string">
 			select now()

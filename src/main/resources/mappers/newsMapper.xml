@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.anyang.ks.mapper.NewsMapper">
+<mapper namespace = "com.goku.ks.mapper.NewsMapper">
 
 	<insert id="insertAbroadNews">
 		INSERT INTO ABROAD_SCRAP(USER_NUM, ABROAD_SCRAP_URL, ABROAD_SCRAP_TITLE, ABROAD_SCRAP_DESCRIPTION, ABROAD_SCRAP_PUBDATE, ABROAD_SCRAP_IMG_URL, ABROAD_SCRAP_WRITER)
@@ -15,12 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{user_num},#{link},#{title},#{description},#{pubDate},#{keyword}); 
 	</insert>
 	
-	<select id="searchDemesticNews" resultType="com.anyang.ks.scrap.DemesticPopular">
+	<select id="searchDemesticNews" resultType="com.goku.ks.scrap.DemesticPopular">
 		SELECT DOMESTIC_SCRAP_URL, DOMESTIC_SCRAP_TITLE, DOMESTIC_SCRAP_DESCRIPTION, DOMESTIC_SCRAP_PUBDATE,DOMESTIC_SCRAP_KEYWORD 
 		from DOMESTIC_SCRAP GROUP BY DOMESTIC_SCRAP_URL ORDER BY COUNT(*) DESC LIMIT 5;
 	</select>
 	
-	<select id="searchAbroadNews" resultType="com.anyang.ks.scrap.AbroadPopular">
+	<select id="searchAbroadNews" resultType="com.goku.ks.scrap.AbroadPopular">
 		SELECT ABROAD_SCRAP_URL, ABROAD_SCRAP_TITLE, ABROAD_SCRAP_DESCRIPTION, ABROAD_SCRAP_PUBDATE,ABROAD_SCRAP_IMG_URL
 		from ABROAD_SCRAP GROUP BY ABROAD_SCRAP_URL ORDER BY COUNT(*) DESC LIMIT 5;
 	</select>
@@ -49,12 +49,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM ABROAD_SCRAP WHERE USER_NUM = #{user_num} AND ABROAD_SCRAP_URL = #{link};
 	</delete>
 	
-	<select id="getDemScrapList" resultType="com.anyang.ks.scrap.GETDemesticScrap">
+	<select id="getDemScrapList" resultType="com.goku.ks.scrap.GETDemesticScrap">
 		SELECT DOMESTIC_SCRAP_URL, DOMESTIC_SCRAP_TITLE, DOMESTIC_SCRAP_DESCRIPTION, DOMESTIC_SCRAP_PUBDATE 
 		from DOMESTIC_SCRAP WHERE USER_NUM = #{userNum};
 	</select>
 	
-	<select id="getAbrScrapList" resultType="com.anyang.ks.scrap.GETAbroadScrap">
+	<select id="getAbrScrapList" resultType="com.goku.ks.scrap.GETAbroadScrap">
 		SELECT ABROAD_SCRAP_URL, ABROAD_SCRAP_TITLE, ABROAD_SCRAP_DESCRIPTION, ABROAD_SCRAP_PUBDATE, ABROAD_SCRAP_IMG_URL, ABROAD_SCRAP_WRITER
 		from ABROAD_SCRAP WHERE USER_NUM = #{userNum};
 	</select>

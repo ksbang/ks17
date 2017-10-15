@@ -22,9 +22,9 @@
 	</beans:bean>
 	
 	<!-- 로그인 인터셉터 -->
-	<beans:bean id="loginInterceptor" class="com.anyang.ks.user.LoginInterceptor"></beans:bean>
-	<beans:bean id="logoutInterceptor" class="com.anyang.ks.user.LogoutInterceptor"></beans:bean>
-	<beans:bean id="authInterceptor" class="com.anyang.ks.user.AuthInterceptor"></beans:bean>
+	<beans:bean id="loginInterceptor" class="com.goku.ks.user.LoginInterceptor"></beans:bean>
+	<beans:bean id="logoutInterceptor" class="com.goku.ks.user.LogoutInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" class="com.goku.ks.user.AuthInterceptor"></beans:bean>
 	
 	<interceptors>
 	
@@ -47,7 +47,7 @@
 			
 	</interceptors>
 	
-	<context:component-scan base-package="com.anyang.ks" />
+	<context:component-scan base-package="com.goku.ks" />
 	
 	
 	

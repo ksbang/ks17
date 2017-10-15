@@ -3,21 +3,21 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.anyang.ks.mapper.UserMapper">
+<mapper namespace = "com.goku.ks.mapper.UserMapper">
 
-	<select id="isEmailDuplicate" resultType="com.anyang.ks.user.User" >
+	<select id="isEmailDuplicate" resultType="com.goku.ks.user.User" >
 		SELECT USER_EMAIL FROM USER WHERE USER_EMAIL = #{USER_EMAIL}
 	</select>
 
 	<insert id = "insertLoginProfileByEmail">
-		INSERT INTO USER(USER_EMAIL, USER_PASSWORD, USER_NICKNAME) VALUES(#{USER_EMAIL}, #{USER_PASSWORD}, #{USER_NICKNAME})
+		INSERT INTO USER(USER_NUM, USER_EMAIL, USER_PASSWORD, USER_NICKNAME) VALUES(#{USER_NUM}, #{USER_EMAIL}, #{USER_PASSWORD}, #{USER_NICKNAME})
 	</insert>
 	
 	<insert id = "insertRegisterType" parameterType = "map">
 		INSERT INTO REGISTER_TYPE(USER_NUM, REGISTER_TYPE_CODE) VALUES((SELECT USER_NUM FROM USER WHERE USER_EMAIL = #{signupVO.USER_EMAIL}), #{register_type_code})
 	</insert>
 	
-	<select id="getLoginProfileByEmail" resultType="com.anyang.ks.user.User" >
+	<select id="getLoginProfileByEmail" resultType="com.goku.ks.user.User" >
 		SELECT USER_NUM, USER_EMAIL, USER_PASSWORD, USER_NICKNAME FROM USER WHERE USER_EMAIL = #{USER_EMAIL} AND USER_PASSWORD = #{USER_PASSWORD}  
 	</select>
 	

@@ -35,14 +35,14 @@
     <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
     </bean>
     
-    <context:component-scan base-package="com.anyang.ks.marketPrice"></context:component-scan>
+    <context:component-scan base-package="com.goku.ks.marketPrice"></context:component-scan>
     <task:scheduler id="gsScheuler" pool-size="10" />
     <task:executor id="gsTaskExecutor" pool-size="720000" />
     <task:annotation-driven executor="gsTaskExecutor" scheduler="gsScheuler" />
     
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     
-    <context:component-scan base-package="com.anyang.ks.persistence"></context:component-scan>
-    <context:component-scan base-package="com.anyang.ks.service"></context:component-scan>
+    <context:component-scan base-package="com.goku.ks.persistence"></context:component-scan>
+    <context:component-scan base-package="com.goku.ks.service"></context:component-scan>
     
 </beans>

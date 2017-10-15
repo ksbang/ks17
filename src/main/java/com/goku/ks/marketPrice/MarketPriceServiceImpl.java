@@ -1,0 +1,45 @@
+package com.goku.ks.marketPrice;
+
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+@Service
+
+public class MarketPriceServiceImpl implements MarketPriceService{
+
+	@Inject
+	MarketPriceDAO dao;
+	
+	@Override
+	public void rateSave(MarketPriceSave marketPrice) throws Exception {
+
+		dao.rateSave(marketPrice);
+		
+	}
+
+	@Override
+	public List<MarketPriceChart> chart(String money_type) throws Exception {
+		
+		return dao.chart(money_type);
+		
+	}
+	
+	@Override
+	public List<MarketPrice> coinRateList(String sorting_type, String money_type) throws Exception {
+		
+		return dao.coinRateList(sorting_type, money_type);
+
+	}
+
+	@Override
+	public List<MarketPrice> oneChart(OneChart oneChart) throws Exception {
+		
+		return dao.oneChart(oneChart);
+		
+	}
+
+}

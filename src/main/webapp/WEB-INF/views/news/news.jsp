@@ -9,7 +9,7 @@
 <%@ include file="../include/grandNav.jsp" %>
 
 	
-<div id="news_title">Bitcoin News Page</div>
+<div id="news_title" style="background-image: url(../../resources/img/mike.png); height: 450px; width: 2000px; border: 1px solid black;">Bitcoin News Page</div>
 
 <!-- keyword 검색 체크박스 -->
 	<div class="row text-center" id="searchNews">

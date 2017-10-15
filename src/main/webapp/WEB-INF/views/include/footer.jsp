@@ -11,9 +11,9 @@
 			</div>
 	
 			<div class="col-sm-7" id="footer_content">
-				<p>주식회사 비트코인닷컴 | 경기도 안양시 만안구 삼덕로 37번길 22 안양대학교  | 대표 홍길동</p> 
-				<p>사업자등록번호 123-45-12345 | 통신판매신고번호 제 2017-경기안양-00010호</p>
-				<p>문의전화 : 09:00 ~ 18:00 1588-1588 | anyang@bitcoin.com</p>
+				<p>주식회사 비트코인닷컴 | 서울특별시 구로구 신도림동 비트코인프라자 2층 | 대표 홍길동</p> 
+				<p>사업자등록번호 123-45-12345 | 통신판매신고번호 제 2017-서울구로-00010호</p>
+				<p>문의전화 : 09:00 ~ 18:00 1588-1588 | kyeongsik@bitcoin.com</p>
 				<p><span class="footer_copyright">Copyright &copy; 2017 BITCOIN ALL RIGHTS RESERVED.</span></p>				
 			</div>
 			 
@@ -27,7 +27,7 @@
 					<ul class="dropdown-menu" role="menu" aria-labelledby="sitemap">
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="marketPrice">실시간 시세</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="/news">최신 뉴스</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">비트코인 커뮤니티</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">익명 게시판</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="/board_list">딜러 소개</a></li>
 					</ul>
 				</div>

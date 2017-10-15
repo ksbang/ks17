@@ -16,26 +16,33 @@
 	
 	<!-- 비트코인 부분 -->
 	<script src="../../resources/js/jquery.tubular.1.0.js"></script>
-	<script src="../../resources/js/jquery.tubular.1.0.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>			<!-- 차트 API js -->
 	<script src="../../resources/js/index_chart.js"></script>				<!-- 차트 구현 js -->
 	<script src="../../resources/js/marketPrice_chart_customizing.js"></script>	<!-- 디자인 커스터마이징 js -->
 	
+	<script src="../../resources/css/ks/plugin/velocity.min.js"></script>
+	<script src="../../resources/css/ks/plugin/skrollr.min.js"></script>
+
+	<!-- 유튜브 동영상이 사라짐-->
+	<!--<script src="../../resources/css/ks/plugin/jquery-1.12.4.min.js"></script>-->
+	<script src="../../resources/css/ks/plugin/jquery.dotdotdot.min.js"></script>
+	
+	<script src="../../resources/css/ks/plugin/jquery.bxslider.min.js"></script>
+	<script src="../../resources/css/ks/plugin/jquery.mobile.custom.min.js"></script>
+
+
+	
     <!-- 비트코인 부분  끝 -->
-    <script type="text/javascript" src="../../resources/js/skrollr.min.js"></script>
+    
     <!--
 	<script type="text/javascript" src="/resources/front/kr/js/plugin/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="/resources/front/kr/js/plugin/jquery.dotdotdot.min.js"></script>
-	<script type="text/javascript" src="/resources/front/kr/js/plugin/skrollr.min.js"></script>
-	<script type="text/javascript" src="/resources/front/kr/js/plugin/velocity.min.js"></script>
-
+	<script type="text/javascript" src="../../resources/css/ks/plugin/skrollr.min.js"></script>
+	<script type="text/javascript" src="../../resources/css/ks/plugin/velocity.min.js"></script>
 	<script type="text/javascript" src="/js/plugin/jquery.bxslider.min.js"></script>
 	<script type="text/javascript" src="/js/plugin/jquery.mobile.custom.min.js"></script>
-
-	<script type="text/javascript" src="/js/common_ui.js"></script>
-	<script type="text/javascript" src="/js/main.js"></script> 
-	-->
-	
+	<script type="text/javascript" src="../../resources/css/ks/common_ui.js"></script>
+	<script type="text/javascript" src="../../resources/css/ks/main.js"></script>-->
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -61,7 +68,7 @@
 	
 		<!-- header content -->
 		<div id="header-content">
-			<!-- <img src="../../resources/img/main_typo.png" alt="메인화면 이미지" id="main_typo_img"/> -->
+			<img src="../../resources/img/main_typo.png" alt="메인화면 이미지" id="main_typo_img"/>
 		</div>
 		
 		<!-- graph link img -->
@@ -130,13 +137,30 @@
 			
 		<!-- background -->
 		<div id="wrapper">	
-			
-			
-		<div id="bg-chart" class="section">
+		
+		<!--
+		<style>
+	     .bg-chart{
+	     width:1900px;
+	     height:1700px;
+	     background-image: url('../../resources/img/002_1900x1700.png');
+	     background-repeat:no-repeat;
+	     background-position:center;
+	     background-origin:content-box;
+	     background-size: 100%;
+	     opacity: 0.3!important; filter:alpha(opacity=30);
+	      }
+	     </style>-->
+
+	
+		<div id="bg-chart" class="section" style="background-image: url(../../resources/img/002_1900x1700.png); height: 1700px; width:1900px; border: 1px solid black; opacity: 0.9!important; filter:alpha(opacity=80);">
 		
 		<div class="col-md-offset-1 col-md-10 text-center">
 		
-		<h2 class="secTitle" data-bottom="opacity:0;transform:translate3d(-60px, 0px, 0px);" data-center-bottom="opacity:1;transform:translate3d(0px, 0px, 0px);">비트코인 시세 미리보기</h2>
+		
+		<h2 class="secTitle" style=color:#ffffff >비트코인 시세 미리보기</h2>
+		
+		<!--<div style="background-image: url(../../resources/img/fire.png); height: 1200px; width: 1400px; border: 1px solid black;"> </div> -->
 			
 			<div class="col-sm-12">
 				<div id="USD_Bitcoin_info">USD / Bitcoin</div>
@@ -166,6 +190,7 @@
 			</div>
 			
 		</div>
+	</div>
 		
 		
 	</section>
@@ -234,16 +259,18 @@
 			</div>
 			<!-- //Works -->
 			<!-- issue -->
-			<div id="issueArea" class="section"  style="background-image:url('http://images.studiodragon.net/upload/main/banner/3665120170607165042.jpg')">
-
+			<!--<div id="issueArea" class="section"  style="background-image:url('http://images.studiodragon.net/upload/main/banner/3665120170607165042.jpg'-->)">
+			<div id="issueArea" class="section" style="background-image: url(../../resources/img/anthony.png); height: 450px; width: 2000px; border: 1px solid black;">
+			
+            <!--<img  src="../../resources/img/ocean.png" alt="" id="logos" />-->
 
 
 					<a href="http://open.tving.com" target="_blank">
 
 				<div class="frameSt"><span class="line"></span><span class="edge"></span></div>
 				<dl class="txtArea" data-bottom-top="opacity:0;transform:translate3d(0px, 60px, 0px);" data-center-top="opacity:1;transform:translate3d(0px, 0px, 0px);">
-					<dt>감독은 있는데 대본이 없다.</dt>
-					<dd>작가를 꿈꾸는 이들에게 열려 있는 창작 공간과 기회를 제공합니다.</dd>
+					<dt>비트코인! 생각은 있는데, 공간이 없다?!</dt>
+					<dd>비트코인 정보를 원하는 이들에게 열려 있는 공간을 제공합니다.</dd>
 				</dl>
 
 					</a>
@@ -251,7 +278,7 @@
 			</div>
 			<!-- //issue -->
 			
-		
+			
 			
 			<!-- News -->
 			<div id="newsArea" class="section">
@@ -265,23 +292,23 @@
 						<tbody>
 
 							<tr>
-								<td class="tl"><a href="/front/kr/pr/news/61" class="txt">반전 장인‘써클’이 보여준 뒷통수 클래스</a></td>
-								<td class="tr dateCell">2017.06.07</td>
+								<td class="tl"><a href="/front/kr/pr/news/61" class="txt">[가상화폐 시황] 비트코인 -6.30%↓·이더리움 -8.18%↓...9시 00분 현재</a></td>
+								<td class="tr dateCell">Fri, 22 Sep 2017 09:02:00 +0900</td>
 							</tr>
 
 							<tr>
-								<td class="tl"><a href="/front/kr/pr/news/60" class="txt">‘하백의 신부 2017’ “난 수국의 왕 하백이다” 남주혁표 하백 베일 벗었다!</a></td>
-								<td class="tr dateCell">2017.06.07</td>
+								<td class="tl"><a href="/front/kr/pr/news/60" class="txt">빗썸·코인원, 가상화폐 '리플' 수수료 100배 상향...소비자 불만 팽배</a></td>
+								<td class="tr dateCell">ri, 22 Sep 2017 09:02:00 +0900</td>
 							</tr>
 
 							<tr>
-								<td class="tl"><a href="/front/kr/pr/news/59" class="txt">tvN 화제작 ‘비밀의 숲’  시청자들과 함께 한 시사회, 후끈!</a></td>
-								<td class="tr dateCell">2017.06.07</td>
+								<td class="tl"><a href="/front/kr/pr/news/59" class="txt">랜섬웨어 피해신고 3년간 7배 '껑충'</a></td>
+								<td class="tr dateCell">ri, 22 Sep 2017 09:02:00 +0900</td>
 							</tr>
 
 							<tr>
-								<td class="tl"><a href="/front/kr/pr/news/58" class="txt">OCN 복제인간 추격 스릴러‘듀얼’ 배우 양세종, 절대악 살인마 vs 기억 잃은 복제인간 1人 2色 대본 탐독 현장 포착!</a></td>
-								<td class="tr dateCell">2017.06.07</td>
+								<td class="tl"><a href="/front/kr/pr/news/58" class="txt">돈 갈취 '랜섬웨어' 올 피해신고 5215건…1년새 6.8배 증가</a></td>
+								<td class="tr dateCell">ri, 22 Sep 2017 09:02:00 +0900</td>
 							</tr>
 
 						</tbody>
@@ -305,7 +332,7 @@
 		</div>
 	</div>
 	
-		<section class="bg-third">
+	<section class="bg-third">
 		
 		<div class="container-fluid text-center">
 			
@@ -367,8 +394,10 @@
 			else
 			{
 				var options = {
-						videoId: 'Dk1tRGhQs_k', 
-						//videoId: 'OdPgny2Q2js',
+						videoId: '6D-A6CL3Pv8', 
+						//videoId: 'OdPgny2Q2js'
+						//videoId: 'FjU_x1106pg' 뉴욕 시티
+						
 						start: 10
 					};
 			}

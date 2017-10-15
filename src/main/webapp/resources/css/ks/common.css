@@ -132,11 +132,11 @@ h1 a {display:inline-block; width:241px; height:100px; line-height:0; vertical-a
 .visual-area .frame {position:absolute; width:85%; height:100%; top:0; right:-1px; z-index:0;}
 .visual-area .frame .line{position:absolute;left:0;top:0;display:block;width:100%;height:100%;box-sizing:border-box;border:1px solid #fff;opacity:0.2;}
 .visual-area .frame .edge{position:absolute;left:0;top:0;display:block;width:19px;height:19px;border-left:1px solid #fff;border-top:1px solid #fff;}
-.visual-area.ir { background:url("../images/com/bg_ir.jpg") no-repeat top center ; background-attachment: fixed; } /* irÀÌ¹ÌÁö*/
-.visual-area.about { background:url("../images/com/bg_about.jpg") no-repeat top center ; background-attachment: fixed;}  /* aboutÀÌ¹ÌÁö*/
-.visual-area.works { background:url("../images/com/bg_works.jpg") no-repeat top center ;  background-attachment: fixed;}  /* worksÀÌ¹ÌÁö*/
-.visual-area.career { background:url("../images/com/bg_career.jpg") no-repeat top center ; background-attachment: fixed; } /* careerÀÌ¹ÌÁö*/
-.visual-area.pr { background:url("../images/com/bg_pr.jpg") no-repeat top center ; background-attachment: fixed;}  /* prÀÌ¹ÌÁö*/
+.visual-area.ir { background:url("../images/com/bg_ir.jpg") no-repeat top center ; background-attachment: fixed; } /* irì´ë¯¸ì§€*/
+.visual-area.about { background:url("../images/com/bg_about.jpg") no-repeat top center ; background-attachment: fixed;}  /* aboutì´ë¯¸ì§€*/
+.visual-area.works { background:url("../images/com/bg_works.jpg") no-repeat top center ;  background-attachment: fixed;}  /* worksì´ë¯¸ì§€*/
+.visual-area.career { background:url("../images/com/bg_career.jpg") no-repeat top center ; background-attachment: fixed; } /* careerì´ë¯¸ì§€*/
+.visual-area.pr { background:url("../images/com/bg_pr.jpg") no-repeat top center ; background-attachment: fixed;}  /* prì´ë¯¸ì§€*/
 
 .select-area {position:absolute; right:0; top:-64px}
 .family {position:absolute; width:170px; top:0; right:0; box-sizing:border-box;font-size:15px;}
@@ -300,9 +300,9 @@ h1 a {display:inline-block; width:241px; height:100px; line-height:0; vertical-a
 /* input */
 select {
 	position:relative; width:201px; border:1px solid #d9d9d9; border-radius:0; padding:0 0 0 14px;  height:44px; line-height:40px; color:#000;
-	box-sizing:border-box; -webkit-appearance:none;/* ³×ÀÌÆ¼ºê ¿ÜÇü °¨Ãß±â */ -moz-appearance: none; appearance: none; background:url("../images/com/pull_arr.png") no-repeat right center;
+	box-sizing:border-box; -webkit-appearance:none;/* ë„¤ì´í‹°ë¸Œ ì™¸í˜• ê°ì¶”ê¸° */ -moz-appearance: none; appearance: none; background:url("../images/com/pull_arr.png") no-repeat right center;
 }
-select::-ms-expand {display: none;}/* È­»ìÇ¥ Á¦°Å for IE */
+select::-ms-expand {display: none;}/* í™”ì‚´í‘œ ì œê±° for IE */
 @media screen and (min-width:0\0) {select {background:#fff;}}/* for IE */
 @media screen and (-ms-high-contrast:active), (-ms-high-contrast:none) {select {background:url("../images/com/pull_arr.png") no-repeat right center;  padding-left:14px}}/* for IE10+ */
 select:focus {border:1px solid #000; outline:0}
@@ -510,7 +510,7 @@ a.view .icon{display:inline-block; width:20px; height:25px; background:url("../i
 }
 
 
-/* °İÀÚ ½ºÅ¸ÀÏ °øÅë */
+/* ê²©ì ìŠ¤íƒ€ì¼ ê³µí†µ */
 .right-frame span {box-sizing:border-box; border:1px solid #e5e5e5;border-right:none;}
 .right-frame span:before {content:'';display:block;position:absolute;left:-1px;bottom:-1px;width:19px;height:19px;border-left:1px solid #000;border-bottom:1px solid #000;}
 .left-frame span {box-sizing:border-box; border:1px solid #e5e5e5;border-left:none;}
@@ -522,7 +522,7 @@ a.view .icon{display:inline-block; width:20px; height:25px; background:url("../i
 }
 
 
-/* ¸ğ¼Ç */
+/* ëª¨ì…˜ */
 .overflowHidden{
     overflow: hidden;
 }
@@ -534,7 +534,7 @@ a.view .icon{display:inline-block; width:20px; height:25px; background:url("../i
 }
 
 
-/* ¿¡·¯ÆäÀÌÁö */
+/* ì—ëŸ¬í˜ì´ì§€ */
 #errorWrap{width:100%;position:fixed;left:0;top:50%;margin-top:-375px;}
 #errorPage{width:100%;max-width:1060px;padding:0 30px;margin:0 auto;box-sizing:border-box;}
 #errorPage h1{position:static;left:auto;top:auto;padding:40px 0;text-align:center;font-size:0;}
@@ -557,7 +557,7 @@ a.view .icon{display:inline-block; width:20px; height:25px; background:url("../i
 }
 
 
-/* ÀÌ¸ŞÀÏ¹«´Ü¼öÁı°ÅºÎ ÆË¾÷ */
+/* ì´ë©”ì¼ë¬´ë‹¨ìˆ˜ì§‘ê±°ë¶€ íŒì—… */
 .LayerPop{width:480px;display:none;background:#fff;}
 .LayerPop .btnClose{position:absolute;right:40px;top:40px;display:inline-block;width:21px;height:21px;}
 .LayerPop .btnClose img{width:100%;}

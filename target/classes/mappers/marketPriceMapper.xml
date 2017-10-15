@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-	<mapper namespace = "com.anyang.ks.mapper.marketPriceMapper">
+	<mapper namespace = "com.goku.ks.mapper.marketPriceMapper">
 	
 		<insert id="rateSave">
 			INSERT INTO MARKET_PRICE 
@@ -13,7 +13,7 @@
 		
 		<!-- chart search -->
 		<!-- #{money_type}은 통화 타입 (btc, usd, cny...)을 결정하기 위해 삽입 -->
-		<!--  <select id="chart" resultType="com.anyang.ks.marketPrice.MarketPriceChart">
+		<!--  <select id="chart" resultType="com.goku.ks.marketPrice.MarketPriceChart">
 			SELECT TIMESTAMP, #{money_type}
 			FROM MARKET_PRICE 
 			WHERE NAME = #{name} 
@@ -26,7 +26,7 @@
 		</insert>-->
 		
 		<!-- value로 써야한다. -->
-		<select id="chartData" resultType="com.anyang.ks.marketPrice.MarketPriceChart">
+		<select id="chartData" resultType="com.goku.ks.marketPrice.MarketPriceChart">
 			SELECT TIMESTAMP, ${value}
 			FROM MARKET_PRICE
 			WHERE NAME = "LiteCoin"
@@ -49,7 +49,7 @@
 ? 너 능력이 보통이아님 놀람  너짱
 		깨끗하게 맑게 자신있게 뚝딱해버림 뚝딱뚝닥 이건뭐냐안돼그러지마
 		 -->
-		<select id="bitcoinList" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<select id="bitcoinList" resultType="com.goku.ks.marketPrice.MarketPrice">
 		<![CDATA[
 			SELECT
 				*
@@ -60,7 +60,7 @@
 		]]>
 		</select>
 		
-		<select id="bitcoinListLABEL" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<select id="bitcoinListLABEL" resultType="com.goku.ks.marketPrice.MarketPrice">
 		<![CDATA[
 			SELECT 
  				* 
@@ -71,7 +71,7 @@
  		]]> 
 		</select>
 		
-		<select id="bitcoinListNAME" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<select id="bitcoinListNAME" resultType="com.goku.ks.marketPrice.MarketPrice">
 		<![CDATA[
  			SELECT 
  				* 
@@ -82,7 +82,7 @@
  		]]> 
 		</select>
 		
-				<select id="bitcoinListPRICE" resultType="com.anyang.ks.marketPrice.MarketPrice">
+				<select id="bitcoinListPRICE" resultType="com.goku.ks.marketPrice.MarketPrice">
 		<![CDATA[
  			SELECT 
  				* 
@@ -93,7 +93,7 @@
  		]]> 
 		</select>
 		
-		<select id="oneChart" resultType="com.anyang.ks.marketPrice.MarketPrice">
+		<select id="oneChart" resultType="com.goku.ks.marketPrice.MarketPrice">
 		SELECT TIMESTAMP, ${money_type}
 		FROM MARKET_PRICE
 		WHERE NAME = #{coin_type}
